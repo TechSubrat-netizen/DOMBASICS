@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            text-align: center;
+            background-color: chartreuse;
+            padding: 20px;
+            color: white;
+        }
+        button{
+            border-radius: 10px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="one">Hey Whats up!!</h1>
+        <button onclick="printmessage()">Click Here</button>
+    </div>
+    <script>
+        function printmessage(){
+            let head=document.querySelector('#one');
+            head.textContent="Hello, how are you?"
+        }
+
+    </script>
+</body>
+</html>
