@@ -21,14 +21,28 @@
 </head>
 <body>
     <div>
-        <h1 id="one">Hey Whats up!!</h1>
-        <button onclick="printmessage()">Click Here</button>
+        <h1 id="one">print message</h1>
+        <!-- //inline event listner -->
+        <button onclick="printmessage()">Click Here</button> 
+        <button id="hello-btn">Click here</button>
+        <button id="bye-btn">Click here</button>
     </div>
     <script>
+         let head=document.querySelector('#one');
         function printmessage(){
-            let head=document.querySelector('#one');
-            head.textContent="Hello, how are you?"
+           
+            head.textContent="hi"
         }
+        //By using event properties;
+        let hello=document.getElementById('hello-btn')
+        hello.onclick= function(){
+            head.textContent="Hello"
+        }
+        // By using addEventListner;
+        let bye=document.getElementById('bye-btn');
+        bye.addEventListener('click',function(){
+            head.textContent="Bye"
+        })
 
     </script>
 </body>
