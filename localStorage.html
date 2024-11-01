@@ -44,20 +44,43 @@
         let decdislike = document.querySelector('#decdislike');
         let disLikebtn = document.querySelector('#dislikebtn');
         let totallike = document.querySelector('#totalLike');
-        let count1=0
-        let count2=0
-        function increase(){
-            count1++
-            incLike.textContent=count1
-            totallike.textContent=(count1+count2)
+        
+        // Initialize from localStorage
+        let likes = localStorage.getItem('likes') ? Number(localStorage.getItem('likes')) : 0;
+        let dislikes = localStorage.getItem('dislikes') ? Number(localStorage.getItem('dislikes')) : 0;
+        
+        // Update the DOM with initial values
+        incLike.textContent = likes;
+        decdislike.textContent = dislikes;
+        totallike.textContent = likes + dislikes;
+
+        // Increase likes
+        function increase() {
+            likes++;
+            localStorage.setItem('likes', likes);
+            incLike.textContent = likes;
+            
+            // Update total
+            let total = likes + dislikes;
+            localStorage.setItem('total', total);
+            totallike.textContent = total;
         }
-        function decrease(){
-                 count2++;
-                decdislike.textContent=count2;
-                totallike.textContent=(count1+count2);
+
+        // Increase dislikes
+        function decrease() {
+            dislikes++;
+            localStorage.setItem('dislikes', dislikes);
+            decdislike.textContent = dislikes;
+            
+            // Update total
+            let total = likes + dislikes;
+            localStorage.setItem('total', total);
+            totallike.textContent = total;
         }
-            likeBtn.addEventListener('click',increase);
-            disLikebtn.addEventListener('click',decrease)
+
+        // Event listeners
+        likeBtn.addEventListener('click', increase);
+        disLikebtn.addEventListener('click', decrease);
     </script>
    
 </body>

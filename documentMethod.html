@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Methods</title>
+</head>
+<body> 
+       <h1 id="one"> header One</h1>
+      
+        <div id="course selection">
+          <ol>
+             <li class="c1">Javascript</li>
+             <li>DSA</li>
+             <li>Reactjs</li>
+             <li class="c1">Expressjs</li>
+             <li>Mongodatabase</li>
+          </ol>
+
+        </div>
+       <script>
+           let headTag=document.getElementsByTagName('h1')
+           console.log(headTag);
+           console.log(headTag.textContent);
+           
+           let h1Id=document.getElementById('one')
+           console.log(h1Id.textContent);
+           let classListTags=document.getElementsByClassName('c1')
+           console.log(classListTags);
+           let div=document.getElementById('course selection');
+           console.log(div);
+           let tag=document.getElementsByTagName('li')
+           console.log(tag.textContent);
+           
+           let a=document.querySelector('#one')
+           console.log(a);
+           
+           console.log(a.textContent);
+        //    a.textContent="print MESSAGE"
+        let b=document.querySelectorAll('li')
+        console.log(b);
+        let c=document.getElementsByTagName('li')
+        console.log(c);
+       </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .timer {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 m-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 style="color: red;">Sales End In</h1>
+                        <div class="timer">
+                            <span id="minute">24</span> :
+                            <span id="sec">60</span> :
+                            <span id="mili-sec">1000</span>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script code -->
+    <script>
+        let minuteTag = document.querySelector('#minute');
+        let secTag = document.querySelector('#sec');
+        let miliSecTag = document.querySelector('#mili-sec');
+
+        let sec = 60;
+        let mSec = 1000;
+        let minute = 0;
+        let timerInterval;
+
+       function timer(){
+         mSec=mSec-10
+         if(mSec==0){
+            sec-=1
+            mSec=1000
+            if(sec==0){
+                minute-=1
+                sec=60
+                mSec=1000
+                if(minute==0){
+           minuteTag.textContent=0;
+           secTag.textContent=0;
+           miliSecTag.textContent=0;
+            }
+          
+       }
+         }
+        minuteTag.textContent=minute;
+        secTag.textContent=sec;
+        miliSecTag.textContent=mSec
+       }
+       setInterval(timer,-10)
+       
+         
+    </script>
+</body>
+</html>
